@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibraSpace | Library Booking System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ===== HTML: HEADER ===== -->
+    <header>
+        <div class="logo">Libra<span>Space</span> 📚</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#seats">Book a Seat</a>
+            <a href="#resources">Resources</a>
+            <a href="#mybookings">My Bookings</a>
+        </nav>
+    </header>
+
+    <!-- ===== HOME SECTION ===== -->
+    <section class="hero" id="home">
+        <h1>Your Space to Learn and Grow</h1>
+
+        <p>
+            Reserve your perfect study seat and book useful library
+            resources in just a few clicks.
+        </p>
+
+        <a href="#seats" class="btn">Book Your Seat →</a>
+    </section>
+
+    <main class="container">
+
+        <!-- ===== DASHBOARD ===== -->
+        <section>
+            <h2 class="section-title">Library Dashboard</h2>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>Total Seats</h3>
+                    <p id="totalSeats">12</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Available Seats</h3>
+                    <p id="availableSeats">12</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>My Bookings</h3>
+                    <p id="totalBookings">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SEAT BOOKING ===== -->
+        <section id="seats">
+            <h2 class="section-title">Reserve a Study Seat</h2>
+
+            <div class="booking-layout">
+
+                <div class="card">
+                    <h3>Select Your Seat</h3>
+
+                    <div class="legend">
+                        <span>
+                            <i class="dot available-dot"></i> Available
+                        </span>
+                        <span>
+                            <i class="dot selected-dot"></i> Selected
+                        </span>
+                        <span>
+                            <i class="dot booked-dot"></i> Booked
+                        </span>
+                    </div>
+
+                    <div class="seat-grid" id="seatGrid"></div>
+
+                    <p class="message" id="seatMessage" aria-live="polite">
+                        Select an available seat to continue.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Booking Details</h3>
+
+                    <form id="seatForm">
+                        <div class="form-group">
+                            <label for="studentName">Student Name</label>
+                            <input
+                                type="text"
+                                id="studentName"
+                                placeholder="Enter your name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="studentEmail">Email Address</label>
+                            <input
+                                type="email"
+                                id="studentEmail"
+                                placeholder="student@example.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bookingDate">Booking Date</label>
+                            <input type="date" id="bookingDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="timeSlot">Time Slot</label>
+                            <select id="timeSlot" required>
+                                <option value="">Select time</option>
+                                <option>09:00 AM - 11:00 AM</option>
+                                <option>11:00 AM - 01:00 PM</option>
+                                <option>01:00 PM - 03:00 PM</option>
+                                <option>03:00 PM - 05:00 PM</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn full-width">
+                            Confirm Seat Booking
+                        </button>
+
+                        <p class="message" id="formMessage"
+                           aria-live="polite"></p>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== RESOURCE BOOKING ===== -->
+        <section id="resources" style="margin-top: 45px;">
+            <h2 class="section-title">Library Resources</h2>
+
+            <div class="resource-grid">
+
+                <div class="card resource-card">
+                    <div class="resource-icon">📖</div>
+                    <h3>Reference Books</h3>
+                    <p>
+                        Access textbooks, reference materials, and
+                        academic books for your studies.
+                    </p>
+                    <button class="btn" onclick="bookResource('Reference Books')">
+                        Book Resource
+                    </button>
+                </div>
+
+                <div class="card resource-card">
+                    <div class="resource-icon">💻</div>
+                    <h3>Study Laptop</h3>
+                    <p>
+                        Reserve a laptop for programming, research,
+                        and educational activities.
+                    </p>
+                    <button class="btn" onclick="bookResource('Study Laptop')">
+                        Book Resource
+                    </button>
+                </div>
+
+                <div class="card resource-card">
+                    <div class="resource-icon">👥</div>
+                    <h3>Discussion Room</h3>
+                    <p>
+                        Reserve a study room for group discussions
+                        and collaborative learning.
+                    </p>
+                    <button class="btn" onclick="bookResource('Discussion Room')">
+                        Book Resource
+                    </button>
+                </div>
+
+            </div>
+
+            <p class="message" id="resourceMessage" aria-live="polite"></p>
+        </section>
+
+        <!-- ===== MY BOOKINGS ===== -->
+        <section id="mybookings" class="booking-list">
+            <h2 class="section-title">My Bookings</h2>
+
+            <div class="card" id="bookingList"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <h3>LibraSpace 📚</h3>
+        <p>Library Seat & Resource Booking System</p>
+        <p>CA2 Project | BTech CSE | Semester 1</p>
+        <p>Designed using HTML, CSS and JavaScript</p>
+    </footer>
+
+    <!-- ===== JAVASCRIPT: FUNCTIONALITY ===== -->
+    <script src="js/script.js"></script>
+</body>
+</html>
